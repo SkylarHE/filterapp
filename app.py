@@ -55,7 +55,6 @@ def apply_filter(img, filter_name):
     else:
         return img
 
-
 # Function to overlay sticker with rotation
 def paste_sticker(bg_img, sticker_img, position, scale, rotation):
     # Convert to RGBA if needed
