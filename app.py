@@ -40,7 +40,7 @@ def apply_filter(img, filter_name):
     img = img.convert("RGB")
     if filter_name == "Brighten":
         enhancer = ImageEnhance.Brightness(img)
-        return enhancer.enhance(1.0)
+        return enhancer.enhance(1.2)
     elif filter_name == "Cool":
         r, g, b = img.split()
         b = b.point(lambda i: min(255, i + 30))
