@@ -178,7 +178,7 @@ if uploaded_file:
     if text.strip() != "":
         font_name = st.selectbox("Choose Font", list(FONTS.keys()))
         font_path = FONTS[font_name]
-        font_size = st.slider("Font Size", 50, 200, 100)
+        font_size = st.slider("Font Size", 100, 300, 150)
         color_name = st.selectbox("Text Color", list(TEXT_COLORS.keys()))
         color = TEXT_COLORS[color_name]
         text_pos_x = st.slider("Text X position", 0, image.width, 50)
