@@ -43,11 +43,11 @@ def apply_filter(img, filter_name):
         return enhancer.enhance(1.1)
     elif filter_name == "Cool":
         r, g, b = img.split()
-        b = b.point(lambda i: min(255, i + 30))
+        b = b.point(lambda i: min(255, i + 20))
         return Image.merge("RGB", (r, g, b))
     elif filter_name == "Warm":
         r, g, b = img.split()
-        r = r.point(lambda i: min(255, i + 30))
+        r = r.point(lambda i: min(255, i + 20))
         return Image.merge("RGB", (r, g, b))
     elif filter_name == "Grayscale":
         return ImageOps.grayscale(img).convert("RGB")
