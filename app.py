@@ -5,7 +5,7 @@ import io
 
 # Path to assets
 STICKER_DIR = "assets/stickers"
-INITIAL_SCALE = 0.5
+INITIAL_SCALE = 0.5  # 初始缩放比例，贴纸基准尺寸
 FILTERS = ["Original", "Brighten", "Cool", "Warm", "Grayscale"]
 
 STICKERS = {
@@ -56,8 +56,10 @@ def paste_sticker(bg_img, sticker_img, position, scale, rotation):
         bg_img = bg_img.convert('RGBA')
 
     sticker_layer = Image.new('RGBA', bg_img.size, (0, 0, 0, 0))
+
+    # 贴纸尺寸基于 INITIAL_SCALE * 用户调整 scale，合成一次缩放
     w, h = sticker_img.size
-    resized = sticker_img.resize((int(w * scale), int(h * scale)), Image.Resampling.LANCZOS)
+    resized = sticker_img.resize((int(w * INITIAL_SCALE * scale), int(h * INITIAL_SCALE * scale)), Image.Resampling.LANCZOS)
     rotated = resized.rotate(rotation, expand=True, resample=Image.BICUBIC)
 
     x, y = position
@@ -126,9 +128,7 @@ if uploaded_file:
         scale = st.session_state.stickers_scale[sticker_key]
         rotation = st.session_state.stickers_rotation[sticker_key]
         sticker_img = st.session_state.original_stickers[sticker_key]
-        resized_img = sticker_img.resize((int(sticker_img.width * INITIAL_SCALE),
-                                          int(sticker_img.height * INITIAL_SCALE)))
-        filtered_image = paste_sticker(filtered_image, resized_img, (x, y), scale, rotation)
+        filtered_image = paste_sticker(filtered_image, sticker_img, (x, y), scale, rotation)
 
     st.subheader("Final Output")
     st.image(filtered_image, caption="Your Fun Sticker Image", use_container_width=True)
