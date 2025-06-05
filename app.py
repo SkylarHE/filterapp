@@ -21,9 +21,9 @@ STICKERS = {
 
 # 三种字体文件路径，请根据实际路径替换
 FONTS = {
-    "Arial": "assets/fonts/Arial.ttf",
-    "Courier": "assets/fonts/Cour.ttf",
-    "Times New Roman": "assets/fonts/Times.ttf"
+    "Arial": "assets/fonts/arial.ttf",
+    "Courier": "assets/fonts/cour.ttf",
+    "Times New Roman": "assets/fonts/times.ttf"
 }
 
 TEXT_COLORS = {
