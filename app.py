@@ -205,7 +205,6 @@ if uploaded_file:
             )
             # 同步滑块和数值输入框
             if rotation != rotation_num:
-                st.session_state[f"rot_slider_{sticker_key}"] = rotation_num
                 rotation = rotation_num
 
         # 更新session状态
