@@ -102,7 +102,7 @@ if uploaded_file:
         filtered_image = paste_sticker(filtered_image, sticker_img, (x, y), scale)
 
     st.subheader("Final Output")
-    st.image(filtered_image, caption="Your Fun Sticker Image", use_column_width=True)
+    st.image(filtered_image, caption="Your Fun Sticker Image", use_container_width=True)
 
     img_byte_arr = io.BytesIO()
     filtered_image.save(img_byte_arr, format='PNG')
