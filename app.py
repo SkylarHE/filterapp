@@ -40,7 +40,7 @@ def apply_filter(img, filter_name):
     img = img.convert("RGB")
     if filter_name == "Brighten":
         enhancer = ImageEnhance.Brightness(img)
-        return enhancer.enhance(1.5)
+        return enhancer.enhance(1.0)
     elif filter_name == "Cool":
         r, g, b = img.split()
         b = b.point(lambda i: min(255, i + 30))
@@ -67,7 +67,7 @@ if uploaded_file:
     filter_option = st.selectbox("Filter", FILTERS)
     filtered_image = apply_filter(image.copy(), filter_option)
 
-    st.image(filtered_image, caption="Filtered Image", use_column_width=True)
+    st.image(filtered_image, caption="Filtered Image", use_container_width=True)
 
     st.subheader("Choose stickers")
     selected_stickers = []
