@@ -158,8 +158,8 @@ if uploaded_file:
                              st.session_state.stickers_rotation[sticker_key], key=f"rot_{sticker_key}")
         st.session_state.stickers_rotation[sticker_key] = rotation
 
-    # 贴纸预览区（只显示贴纸，不叠加滤镜）
-    preview_sticker_image = image.copy().convert("RGBA")
+    # 贴纸预览区（叠加滤镜 + 贴纸）
+    preview_sticker_image = filtered_image.copy().convert("RGBA")  # 使用应用了滤镜的图片作为底图
     for sticker_key in selected_stickers:
         x, y = st.session_state.stickers_pos[sticker_key]
         scale = st.session_state.stickers_scale[sticker_key]
